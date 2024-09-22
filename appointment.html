@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Fitness Class</title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="appointment.html">Appointment</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <section class="booking-form">
+        <h1>Book Your Class</h1>
+        <form action="book_class_process.php" method="POST">
+            <label for="class">Select Class:</label>
+            <select id="class" name="class">
+                <option value="Yoga">Yoga</option>
+                <option value="Weight Loss">Weight Loss</option>
+                <option value="Strength Training">Strength Training</option>
+            </select>
+
+            <label for="date">Select Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="slot">Choose a Slot:</label>
+            <select name="slot" id="slot-select" required>
+                <option value="">--Please choose a slot--</option>
+                <option value="6-8">6 AM to 8 AM</option>
+                <option value="9-11">9 AM to 11 AM</option>
+                <option value="4-6">4 PM to 6 PM</option>
+                <option value="7-9">7 PM to 9 PM</option>
+            </select>
+            <label for="trainer">Choose a Trainer</label>
+            <select name="trainer" id="trainer-select" required>
+                <option value="">--Please choose a trainer--</option>
+                <option value="John Doe">John Doe</option>
+                <option value="Jane Smith">Jane Smith</option>
+                <option value="Alex Johnson">Alex Johnson</option>
+                <option value="Emily Davis">Emily Davis</option>
+            </select>
+
+
+            <button type="submit">Book Class</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 RapidFit. All Rights Reserved.</p>
+    </footer>
+
+    <script type="text/javascript">
+        $(function() {
+            var dtToday = new Date();
+            var month = dtToday.getMonth() + 1;
+            var day = dtToday.getDate();
+            var year = dtToday.getFullYear();
+
+            if (month < 10)
+                month = '0' + month.toString();
+            if (day < 10)
+                day = '0' + day.toString();
+
+            var maxDate = year + '-' + month + '-' + day;
+            $('#date').attr('min', maxDate);
+        });
+    </script>
+
+</body>
+
+</html>
